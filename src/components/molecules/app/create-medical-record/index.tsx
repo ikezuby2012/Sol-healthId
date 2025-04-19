@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useMedicalRecordProgram } from '@/components/healthId/healthId-data-access';
 import { PublicKey } from '@solana/web3.js';
+import Image from "next/image";
 
 
 interface Props {
@@ -144,7 +145,7 @@ export function CreateMedicalRecordProps({ open, onChange, publicKey }: Props) {
                             >
                                 {previewUrl ? (
                                     <div className="space-y-4 w-full">
-                                        <img
+                                        <Image
                                             src={previewUrl}
                                             alt="Preview"
                                             className="max-h-48 mx-auto object-contain"

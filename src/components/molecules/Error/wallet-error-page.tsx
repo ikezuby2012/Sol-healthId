@@ -1,6 +1,7 @@
 import React from 'react';
 import { WifiOff, Wallet } from 'lucide-react';
 import { WalletButton } from '@/components/solana/solana-provider';
+import Image from "next/image";
 
 
 export function WalletErrorPage() {
@@ -17,7 +18,7 @@ export function WalletErrorPage() {
 
         {/* Network Image */}
         <div className="relative w-64 h-64 mx-auto">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-1.2.1&auto=format&fit=crop&w=2069&q=80"
             alt="Disconnected Network"
             className="w-full h-full object-cover rounded-lg opacity-50"

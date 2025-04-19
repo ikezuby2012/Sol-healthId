@@ -36,7 +36,7 @@ export function useCheckIfPatientRecordExist(
                 setIsLoading(false);
             }
         }, 2000); // Simulate a delay for async operations
-    }, [accountOwners]);
+    }, [accountOwners, currentAccount]);
 
     // Render an error page if there is an error
     const errorComponent = error ? (

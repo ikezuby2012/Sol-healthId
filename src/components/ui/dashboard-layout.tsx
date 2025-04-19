@@ -9,6 +9,7 @@ import { DashboardNav } from '../dashboard/dashboard-nav';
 import { usePatientRecordProgram } from '../healthId/healthId-data-access';
 import { ErrorPage } from '../molecules/Error/error-page';
 import { WalletErrorPage } from '../molecules/Error/wallet-error-page';
+import Image from "next/image";
 
 export function DashboardLayout({ children }: { children: ReactNode }) {
     const { publicKey, connected } = useWallet();
@@ -26,7 +27,7 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
         return accounts.data.some((account: any) => {
             return account.account.owner.toString() === publicKey?.toString();
         });
-    }, [accounts]);
+    }, [accounts, publicKey]);
 
     if (!connected) {
         return (
@@ -102,7 +103,7 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
                             </button>
                             <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
                                 {session?.user?.image && (
-                                    <img
+                                    <Image
                                         src={session.user.image}//"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                         alt="User avatar"
                                         className="w-8 h-8 rounded-full"

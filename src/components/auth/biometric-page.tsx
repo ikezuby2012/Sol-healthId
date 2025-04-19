@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { Fingerprint, Scan } from 'lucide-react';
 import toast from "react-hot-toast";
 
@@ -146,13 +147,19 @@ export default function BiometricPage({ onNextClick }: Props) {
                 {photo && (
                     <div>
                         <h2>Captured Photo</h2>
-                        <img src={photo} alt="Captured" style={{ width: '100%', maxWidth: '400px' }} />
+                        <Image
+                            src={photo}
+                            alt="Captured"
+                            width={400}
+                            height={300}
+                            style={{ width: '100%', height: 'auto' }}
+                        />
                     </div>
                 )}
             </div>
 
             <p className="mt-6 text-sm text-gray-500">
-                You'll need to do this every time you create a new secure key.
+                You&apos;ll need to do this every time you create a new secure key.
             </p>
 
             <div className="mt-8">

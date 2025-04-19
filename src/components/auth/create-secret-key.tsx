@@ -71,7 +71,7 @@ export default function CreateSecretKeyPage({ onNextClick, secretKey }: Props) {
                             </div>
                         </div>
                         <p className="text-sm text-gray-500">
-                            Store this key in a safe place. You'll need it to recover your account if you lose access.
+                            Store this key in a safe place. You&apos;ll need it to recover your account if you lose access.
                         </p>
                     </div>
                 )}

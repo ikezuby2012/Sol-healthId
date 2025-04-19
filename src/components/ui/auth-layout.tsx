@@ -26,7 +26,7 @@ export function AuthLayout({ children }: { children: ReactNode; }) {
                     </div>
                     <div className='text-white'>
                         <blockquote className="text-xl font-medium">
-                            "The future of healthcare data information starts here. Simple, secure, and seamless."
+                        &quot;The future of healthcare data information starts here. Simple, secure, and seamless.&quot;
                         </blockquote>
                         <p className="mt-6">Dr. Sarah Chen</p>
                         <p className="text-sm opacity-80">Chief of Digital Health, Metro General</p>

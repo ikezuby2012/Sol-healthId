@@ -36,7 +36,7 @@ export default function BackUpCodePage({ onNextClick, onPrevClick, updatePayload
                 <form onSubmit={handleSubmit}>
                     <h2 className="text-2xl font-bold text-gray-900">Backup Code</h2>
                     <p className="mt-2 text-gray-600">
-                        Write your backup code somewhere safe. This is the only chance you'll get to do it. If you lose your healthcare identity and haven't done this, you won't be able to register again.
+                        Write your backup code somewhere safe. This is the only chance you&apos;ll get to do it. If you lose your healthcare identity and haven&apos;t done this, you won&apos;t be able to register again.
                     </p>
 
                     <div className="mt-8 space-y-6">
@@ -61,7 +61,7 @@ export default function BackUpCodePage({ onNextClick, onPrevClick, updatePayload
                         <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-start space-x-3">
                             <AlertTriangle className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                             <p className="text-sm text-amber-800">
-                                Make sure to store this backup code in a secure location. You won't be able to see it again after completing registration.
+                                Make sure to store this backup code in a secure location. You won&apos;t be able to see it again after completing registration.
                             </p>
                         </div>
                     </div>

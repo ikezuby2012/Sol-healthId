@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Loader2 } from 'lucide-react';
+import Image from "next/image";
 
 export default function LoginPage() {
     const { data: session, status } = useSession();
@@ -74,7 +75,7 @@ export default function LoginPage() {
                         onClick={handleGoogleSignIn}
                         className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
-                        <img
+                        <Image
                             className="h-5 w-5 mr-2"
                             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
                             alt="Google logo"
@@ -85,7 +86,7 @@ export default function LoginPage() {
                 </div>
 
                 <p className="mt-2 text-center text-sm text-gray-600">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <Link href="/auth/register-user" className="font-medium text-blue-600 hover:text-blue-500">
                         Register
                     </Link>

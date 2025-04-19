@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { twMerge } from "tailwind-merge";
 import { ClassValue, clsx } from "clsx";
 import moment from "moment";
@@ -9,10 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 export const formatDate = (date: string) => moment(date).format("YYYY-MM-DD");
 
-export const formatDateToIso = (date: any) => {
-  const _date = date.$d as any;
-  const originDate = _date.toUTCString();
-
+export const formatDateToIso = (date: { $d: Date }) => {
+  const originDate = date.$d.toUTCString();
   return new Date(originDate).toISOString();
 };
 
