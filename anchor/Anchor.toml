@@ -27,3 +27,6 @@ upgradeable = false
 bind_address = "127.0.0.1"
 ledger = ".anchor/test-ledger"
 rpc_port = 8899
+
+[programs.devnet]
+solhealth = "EPvFfFfRmbt1ZPtgstNFePa8BGNDfBPUBmY6t9mGYT7Z"

@@ -8,7 +8,7 @@ import { useSolhealthProgram } from './solhealth-data-access'
 import { SolhealthCreate, SolhealthList } from './solhealth-ui'
 
 export default function SolhealthFeature() {
-  const { publicKey } = useWallet()
+  const { publicKey } = useWallet();
   const { programId } = useSolhealthProgram()
 
   return publicKey ? (

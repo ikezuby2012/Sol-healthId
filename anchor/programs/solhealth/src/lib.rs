@@ -1,70 +1,65 @@
 #![allow(clippy::result_large_err)]
-
+use crate::instructions::*;
+use crate::state::*;
 use anchor_lang::prelude::*;
 
-declare_id!("coUnmi3oBUtwtd9fjeAvSsJssXh5A5xyPbhpewyzRVF");
+mod error;
+mod instructions;
+mod state;
+
+declare_id!("EPvFfFfRmbt1ZPtgstNFePa8BGNDfBPUBmY6t9mGYT7Z");
 
 #[program]
 pub mod solhealth {
     use super::*;
 
-  pub fn close(_ctx: Context<CloseSolhealth>) -> Result<()> {
-    Ok(())
-  }
+    pub fn create_patient(
+        ctx: Context<CreateIdentity>,
+        name: String,
+        patient_id: String,
+        email: String,
+        phone: String,
+        data_hash: String,
+    ) -> Result<()> {
+        create_patient_identity(ctx, name, patient_id, email, phone, data_hash)
+    }
 
-  pub fn decrement(ctx: Context<Update>) -> Result<()> {
-    ctx.accounts.solhealth.count = ctx.accounts.solhealth.count.checked_sub(1).unwrap();
-    Ok(())
-  }
+    pub fn insert_medical_record(
+        ctx: Context<AddMedicalRecord>,
+        record_id: String,
+        record_type: RecordType,
+        image_url: String
+    ) -> Result<()> {
+        add_medical_record(ctx, record_id, record_type, image_url)
+    }
 
-  pub fn increment(ctx: Context<Update>) -> Result<()> {
-    ctx.accounts.solhealth.count = ctx.accounts.solhealth.count.checked_add(1).unwrap();
-    Ok(())
-  }
+    pub fn grant_record_access(
+        ctx: Context<GrantAccess>,
+        record_type: RecordType,
+        record_type_discriminant: u8,
+        access_duration: u64,
+    ) -> Result<()> {
+        grant_access(ctx, record_type, record_type_discriminant, access_duration)
+    }
 
-  pub fn initialize(_ctx: Context<InitializeSolhealth>) -> Result<()> {
-    Ok(())
-  }
+    pub fn revoke_record_access(ctx: Context<RevokeAccess>) -> Result<()> {
+        revoke_access(ctx)
+    }
 
-  pub fn set(ctx: Context<Update>, value: u8) -> Result<()> {
-    ctx.accounts.solhealth.count = value.clone();
-    Ok(())
-  }
-}
+    pub fn update_med_record(
+        ctx: Context<UpdateMedicalRecord>,
+        record_type: RecordType,
+        image_url: String
+    ) -> Result<()> {
+        update_medical_record(ctx,  record_type, image_url)
+    }
 
-#[derive(Accounts)]
-pub struct InitializeSolhealth<'info> {
-  #[account(mut)]
-  pub payer: Signer<'info>,
-
-  #[account(
-  init,
-  space = 8 + Solhealth::INIT_SPACE,
-  payer = payer
-  )]
-  pub solhealth: Account<'info, Solhealth>,
-  pub system_program: Program<'info, System>,
-}
-#[derive(Accounts)]
-pub struct CloseSolhealth<'info> {
-  #[account(mut)]
-  pub payer: Signer<'info>,
-
-  #[account(
-  mut,
-  close = payer, // close account and return lamports to payer
-  )]
-  pub solhealth: Account<'info, Solhealth>,
-}
-
-#[derive(Accounts)]
-pub struct Update<'info> {
-  #[account(mut)]
-  pub solhealth: Account<'info, Solhealth>,
-}
-
-#[account]
-#[derive(InitSpace)]
-pub struct Solhealth {
-  count: u8,
+    pub fn update_patient_data(
+        ctx: Context<UpdatePatientIdentity>,
+        new_name: String,
+        new_data_hash: String,
+        is_active: bool,
+    ) -> Result<()> {
+        update_patient_identity(ctx, new_name, new_data_hash, is_active)
+    }
 }

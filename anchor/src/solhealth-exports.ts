@@ -21,7 +21,7 @@ export function getSolhealthProgramId(cluster: Cluster) {
     case 'devnet':
     case 'testnet':
       // This is the program ID for the Solhealth program on devnet and testnet.
-      return new PublicKey('coUnmi3oBUtwtd9fjeAvSsJssXh5A5xyPbhpewyzRVF')
+      return new PublicKey('EPvFfFfRmbt1ZPtgstNFePa8BGNDfBPUBmY6t9mGYT7Z')
     case 'mainnet-beta':
     default:
       return SOLHEALTH_PROGRAM_ID
